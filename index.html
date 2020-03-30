@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Garfield</title>
+        <link href="https://fonts.googleapis.com/css?family=Happy+Monkey&display=swap" rel="stylesheet">
+        <style type="text/css" media="screen">
+            :root {
+                --skin: #F9B31E;
+                --yellow: #FFF599;
+                --black: #1D1E18;
+                --pink: #FAD4CE;
+                background-color: white;
+                box-sizing: border-box;
+            }
+            body {
+                height: 100vh;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('bg.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .face {
+                width: 480px;
+                height: 600px;
+                margin: 0px auto;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                border-radius: 20px;
+                border: 5px solid black;
+                box-shadow: inset 5px 5px 15px #2b2b2b, inset -5px -5px 15px #2b2b2b;
+            }
+            .eyes {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 14.9em;
+                height: 18em;
+                margin: 15% auto;
+                /* background-color: var(--skin); */
+                border-radius: 3em 3em 6em 6em;
+                position: relative;
+                left: -60px;
+                z-index: 4;
+            }
+            .left-eye {
+                background-color: blue;
+                width: 6em;
+                height: 8em;
+                background-color: orange;
+                position: relative;
+                top: -3em;
+                left: 3.25em;
+                border-radius: 10em 10em 0 0;
+                border: 4px solid black;
+                position: relative;
+                box-shadow: inset -10px 0px 10px #C18B17, inset 10px 10px 10px #C18B17;
+            }
+            .right-eye {
+                background-color: blue;
+                width: 6em;
+                height: 8em;
+                background-color: orange;
+                position: relative;
+                top: -3em;
+                left: 3.25em;
+                border-radius: 10em 10em 0 0;
+                border: 4px solid black;
+                position: relative;
+                box-shadow: inset 10px 0px 10px #C18B17, inset -10px 10px 10px #C18B17;
+            }
+            .left-eye-pupil {
+                width: 6.0em;
+                height: 50px;
+                background-color: white;
+                position: relative;
+                top: 8em;
+                left: -0.3em;
+                border-radius: 0 0 3em 3em;
+                border: 4px solid black;
+                box-shadow: inset 0px -10px 10px #C8C7C3;
+            }
+            div.left-pupil {
+                width: 2.5em;
+                height: 0.8em;
+                border-radius: 0 0 4em 4em;
+                background-color: black;
+                left: 3.5em;
+                position: relative;
+            }
+            div.right-pupil {
+                width: 2.5em;
+                height: 0.8em;
+                border-radius: 0 0 4em 4em;
+                background-color: black;
+                position: relative;
+            }
+            .cheeks {
+                width: 20;
+                height: 7em;
+                position: relative;
+                top: -13em;
+                left: -0.55em;
+                display: flex;
+                flex-diretion: row;
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+            }
+            .left-cheek {
+                width: 130px;
+                height: 120px;
+                border-radius: 50%;
+                background-color: var(--yellow);
+                border-bottom: 4px solid black;
+                border-right: 4px solid black;
+                border-left: 4px solid black;
+                box-shadow: inset 0px -20px 10px #C8C078;
+            }
+            .right-cheek {
+                width: 130px;
+                height: 120px;
+                border-radius: 50%;
+                background-color: var(--yellow);
+                border-bottom: 4px solid black;
+                border-left: 4px solid black;
+                border-right: 4px solid var(--black);
+                box-shadow: inset 0px -20px 10px #C8C078;
+            }
+            .left-cheek-extension {
+                width: 60px;
+                height: 40px;
+                background-color: var(--yellow);
+                position: relative;
+                left: -1em;
+                border-radius: 50%;
+                transform: skew(15deg);
+                border-top: 4px solid var(--black);
+                border-left: 4px solid var(--black);
+                box-shadow: inset 10px 0px 10px #C8C078;
+            }
+            .right-cheek-extension {
+                width: 60px;
+                height: 40px;
+                background-color: var(--yellow);
+                position: relative;
+                left: 5em;
+                border-radius: 50%;
+                transform: skew(-15deg);
+                border-top: 4px solid var(--black);
+                border-right: 4px solid var(--black);
+                box-shadow: inset -10px 0px 10px #C8C078;
+            }
+            .nose {
+                width: 3em;
+                height: 2em;
+                background: var(--pink);
+                border-radius: 50%;
+                position: relative;
+                top: -297.7px;
+                left: -0.6em;
+                z-index: 5;
+                border: 4px solid var(--black);
+                animation: move-nose 2s ease-in infinite;
+            }
+            .head {
+                width: 280px;
+                height: 280px;
+                position: absolute;
+                background: orange;
+                top: 86px;
+                -webkit-font-smoothing: subpixel-antialiased;
+                border-radius: 50%;
+                left: 85px;
+                border: 4px solid black;
+                border-top: none;
+                box-shadow: inset 0px -20px 10px #C18B17, inset 10px 0px 10px #C18B17, inset -10px 0px 10px #C18B17;
+                z-index: 2;
+            }
+            .cheek-spots {
+                width: 5px;
+                height: 5px;
+                background-color: black;
+                border-radius: 50%;
+                transform: skew(10deg);
+                z-index: 4;
+            }
+
+            @keyframes move-nose {
+                0% {
+                    top: -297.7px;
+                }
+                50% {
+                    top: -296.7px;
+                }
+                100% {
+                    top: -297.7px;
+                }
+            }
+
+            .ears {
+                position: absolute;
+                z-index: 1;
+            }
+            .left-ear {
+                width: 100px;
+                height: 80px;
+                background: orange;
+                border-radius: 20px 40px;
+                top: 40px;
+                left: -90px;
+                position: relative;
+                border: 4px solid black;
+                box-shadow: inset 5px -21px 11px 10px #C18B17;
+            }
+            .right-ear {
+                width: 100px;
+                height: 80px;
+                background: orange;
+                border-radius: 40px 20px;
+                top: 40px;
+                left: 80px;
+                position: absolute;
+                border: 4px solid black;
+                border-top: none;
+                box-shadow: inset -5px -21px 11px 10px #C18B17;
+            }
+            .message-bubble {
+                position: absolute;
+                top: 500px;
+                width: 100px;
+                background: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 4px solid black;
+                border-radius: 20px;
+            }
+            p {
+               font-family: 'Happy Monkey', cursive;
+               font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="face">
+            <div class="head">
+            </div>
+            <div class="eyes">
+                <div class="left-eye">
+                    <div class="left-eye-pupil">
+                        <div class="left-pupil"></div>
+                    </div>
+                </div>
+                <div class="right-eye">
+                    <div class="left-eye-pupil">
+                        <div class="right-pupil"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cheeks">
+                <div class="left-cheek">
+                    <div class="cheek-spots" style="position:absolute;top:20px;"></div>
+                    <div class="cheek-spots" style="position:absolute;top:10px;left:-5px;"></div>
+                    <div class="left-cheek-extension">
+                    </div>
+                </div>
+                <div class="right-cheek">
+                    <div class="cheek-spots" style="position:absolute;top:20px;left:265px;"></div>
+                    <div class="cheek-spots" style="position:absolute;top:10px;left:275px;"></div>
+                    <div class="right-cheek-extension"></div>
+                </div>
+            </div>
+            <div class="ears">
+                <div class="left-ear"></div>
+                <div class="right-ear"></div>
+            </div>
+            <div class="nose">
+            </div>
+            <div class="message-bubble">
+                <p>HELLO</p>
+            </div>
+        </div>
+    </body>
+</html>
